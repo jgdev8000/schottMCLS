@@ -1,0 +1,29 @@
+Terminator = CR;
+ReplyTimeout = 1000;
+
+# Set LED intensity (0-255)
+# Input: intensity value in decimal (0-255)
+# Output: echoes the command
+setIntensity {
+    out "&I%02X";
+    in "%*s";
+}
+
+# Get current LED intensity
+# Returns the intensity value (device responds with lowercase)
+getIntensity {
+    out "&I?";
+    in "&i%02X";
+}
+
+# Enable LED output
+enableLED {
+    out "&L1";
+    in "%*s";
+}
+
+# Disable LED output
+disableLED {
+    out "&L0";
+    in "%*s";
+}

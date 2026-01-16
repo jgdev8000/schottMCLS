@@ -1,0 +1,8 @@
+-include $(TOP)/configure/RELEASE.local
+
+EPICS_BASE=/opt/epics/base
+
+# Support modules from synApps
+CALC=/opt/epics/synApps/support/calc-R3-7-4
+STREAM=/opt/epics/synApps/support/StreamDevice-2-8-22
+ASYN=/opt/epics/synApps/support/asyn-R4-42

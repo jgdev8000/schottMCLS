@@ -1,0 +1,34 @@
+record(ao, "MCLS:LED:Intensity") {
+    field(DESC, "LED Brightness Intensity")
+    field(DTYP, "stream")
+    field(OUT, "@schottMCLS.proto setIntensity L0")
+    field(LOPR, "0")
+    field(HOPR, "255")
+    field(EGU, "counts")
+}
+
+record(ai, "MCLS:LED:Intensity_RBV") {
+    field(DESC, "LED Brightness Read-back")
+    field(DTYP, "stream")
+    field(INP, "@schottMCLS.proto getIntensity L0")
+    field(LOPR, "0")
+    field(HOPR, "255")
+    field(EGU, "counts")
+    field(SCAN, "10 second")
+}
+
+record(bo, "MCLS:LED:Enable") {
+    field(DESC, "LED Enable")
+    field(DTYP, "stream")
+    field(OUT, "@schottMCLS.proto enableLED L0")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+}
+
+record(bo, "MCLS:LED:Disable") {
+    field(DESC, "LED Disable")
+    field(DTYP, "stream")
+    field(OUT, "@schottMCLS.proto disableLED L0")
+    field(ZNAM, "Off")
+    field(ONAM, "Disable")
+}

@@ -1,0 +1,22 @@
+# Schott MC-LS IOC Initialization Script
+
+# Set environment variables
+epicsEnvSet("TOP", "/opt/iocs/schottMCLS")
+epicsEnvSet("STREAM_PROTOCOL_PATH", "$(TOP)/schottMCLSApp/Db")
+
+# Load the database definition file and register device/driver support
+dbLoadDatabase("$(TOP)/dbd/schottMCLS.dbd")
+schottMCLS_registerRecordDeviceDriver(pdbbase)
+
+# Configure asyn serial port for USB device
+drvAsynSerialPortConfigure("L0", "/dev/ttyACM0", 0, 0, 0)
+asynSetOption("L0", -1, "baud", "9600")
+asynSetOption("L0", -1, "bits", "8")
+asynSetOption("L0", -1, "parity", "none")
+asynSetOption("L0", -1, "stop", "1")
+
+# Load database records for Schott MC-LS
+dbLoadRecords("$(TOP)/schottMCLSApp/Db/schottMCLS.db", "")
+
+# Start the IOC
+iocInit

@@ -1,0 +1,8 @@
+# Custom DBD file for Schott MC-LS IOC
+# Includes all base record types plus asyn and stream support
+
+include "/opt/epics/base/dbd/base.dbd"
+include "/opt/epics/synApps/support/asyn-R4-42/dbd/asyn.dbd"
+include "/opt/epics/synApps/support/asyn-R4-42/dbd/asynRecord.dbd"
+include "/opt/epics/synApps/support/asyn-R4-42/dbd/devEpics.dbd"
+include "/opt/epics/synApps/support/StreamDevice-2-8-22/dbd/stream.dbd"

@@ -1,0 +1,33 @@
+# Schott MC-LS LED Controller Database
+
+record(ao, "MCLS:LED:Intensity") {
+  field(DESC, "LED Intensity Control")
+  field(DTYP, "stream")
+  field(OUT, "@schottMCLS.proto setIntensity L0")
+  field(LOPR, "0")
+  field(HOPR, "255")
+  field(VAL, "0")
+}
+
+record(ai, "MCLS:LED:Intensity_RBV") {
+  field(DESC, "LED Intensity Readback")
+  field(DTYP, "stream")
+  field(INP, "@schottMCLS.proto getIntensity L0")
+  field(LOPR, "0")
+  field(HOPR, "255")
+  field(SCAN, "10 second")
+}
+
+record(bo, "MCLS:LED:Enable") {
+  field(DESC, "LED Enable")
+  field(DTYP, "stream")
+  field(OUT, "@schottMCLS.proto enableLED L0")
+  field(HIGH, "1")
+}
+
+record(bo, "MCLS:LED:Disable") {
+  field(DESC, "LED Disable")
+  field(DTYP, "stream")
+  field(OUT, "@schottMCLS.proto disableLED L0")
+  field(HIGH, "1")
+}

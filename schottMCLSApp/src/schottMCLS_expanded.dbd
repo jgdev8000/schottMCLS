@@ -1,0 +1,5 @@
+dbdExpand.pl: Device 'stream' refers to unknown record type 'scalcout'.
+	DBD files must be combined in the correct order.
+Context: file '/opt/epics/synApps/support/StreamDevice-2-8-22/dbd/stream.dbd' in file 'schottMCLS_simple.dbd'
+  while reading 'schottMCLS_simple.dbd' to create ''
+dbdExpand.pl: Exiting due to errors

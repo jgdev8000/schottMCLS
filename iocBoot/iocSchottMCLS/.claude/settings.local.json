@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ldd /opt/iocs/schottMCLS/bin/linux-x86_64/schottMCLS)",
+      "Bash(make clean)",
+      "Bash(make)",
+      "Bash(timeout 5 ./st.cmd)",
+      "Bash(ls -la /opt/iocs/schottMCLS/schottMCLSApp/src/O.linux-x86_64/*.dbd)"
+    ]
+  }
+}

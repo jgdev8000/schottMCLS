@@ -1,0 +1,14 @@
+# configure/CONFIG for Schott MC-LS IOC
+
+# Set EPICS base
+EPICS_BASE = /opt/epics/base
+
+# Include RELEASE to get module paths
+-include $(TOP)/configure/RELEASE.local
+include $(TOP)/configure/RELEASE
+
+# Configure search paths for DBD and libraries
+DBD_INCLUDE_PATH = $(ASYN)/dbd $(STREAM)/dbd
+LIB_SEARCH_PATH = $(ASYN)/lib/$(T_A) $(STREAM)/lib/$(T_A)
+
+include $(EPICS_BASE)/configure/CONFIG
