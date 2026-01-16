@@ -5,14 +5,14 @@ This IOC provides EPICS control of a Schott MC-LS LED illuminator/controller via
 ## Hardware Connection
 
 The Schott MC-LS device uses a Cypress USB chip (ID: `04b4:f232`) that presents itself as a serial port:
-- Linux: `/dev/ttyUSB0`
+- Linux: `/dev/ttyACM0`
 - Windows: `COM3` (or similar, check Device Manager)
 - macOS: `/dev/tty.usbserial-XXXXX`
 
 To verify the device is connected:
 ```bash
 lsusb | grep Cypress
-ls -la /dev/ttyUSB0
+ls -la /dev/ttyACM0
 ```
 
 ## Quick Start - Running the IOC
@@ -112,7 +112,7 @@ caput MCLS:LED:LEDEnable 1
 ### Commands
 ```
 Command           Response        Description
-&I?              &I##            Query intensity (## is hex 00-FF)
+&I?              &i##            Query intensity (## is hex 00-FF)
 &I##             (echo)          Set intensity to ## (hex 00-FF)
 &L1              (echo)          Enable LED
 &L0              (echo)          Disable LED
@@ -147,9 +147,9 @@ iocSchottMCLS/
 
 ### Device Not Found
 - Check USB connection: `lsusb | grep Cypress`
-- Check serial port exists: `ls -la /dev/ttyUSB*`
+- Check serial port exists: `ls -la /dev/ttyACM*`
 - May need to install USB drivers for your system
-- Verify device address in st.cmd (currently `/dev/ttyUSB0`)
+- Verify device address in init.script (currently `/dev/ttyACM0`)
 
 ### No Response from Device
 1. Enable debugging in st.cmd:
@@ -160,9 +160,9 @@ asynSetTraceIOMask("L0", 0, 2)
 
 2. Test serial connection manually:
 ```bash
-screen /dev/ttyUSB0 9600
+screen /dev/ttyACM0 9600
 # Type: &I?
-# Should respond with: &IXX (current intensity)
+# Should respond with: &iXX (current intensity)
 # Exit: Ctrl-A then X
 ```
 
