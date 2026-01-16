@@ -15,6 +15,27 @@ lsusb | grep Cypress
 ls -la /dev/ttyACM0
 ```
 
+## USB Device Access
+
+The `ioc` user requires read/write access to the USB device at `/dev/ttyACM0`. To grant this access:
+
+1. **Check current permissions:**
+```bash
+ls -la /dev/ttyACM0
+```
+
+2. **Add the ioc user to the dialout group** (recommended):
+```bash
+sudo usermod -a -G dialout ioc
+```
+
+3. **Or set specific permissions** (less secure):
+```bash
+sudo chmod 666 /dev/ttyACM0
+```
+
+The group-based approach (step 2) is preferred as it persists across system reboots and is more secure. After adding the user to the group, the user may need to log out and log back in for the changes to take effect.
+
 ## Quick Start - Running the IOC
 
 The easiest way to run the IOC is using the provided startup script:
